@@ -63,6 +63,9 @@ pub fn run_process_events(game: &mut Game, context: &mut Context) {
                     let mut query = world.query::<&mut Gameplay>();
                     let gameplay = query.iter().next().unwrap().1;
                     gameplay.state = GameplayState::Won;
+
+                    // TODO: get win sound
+                    audio_store.play_sound(context, "correct");
                     win_flag = true;
                 },
             }
