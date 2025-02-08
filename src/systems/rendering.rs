@@ -67,8 +67,8 @@ pub fn run_rendering(game: &Game, context: &mut Context) {
     let fps = format!("FPS:  {:.0}", context.time.fps());
     
     for (_z, group) in rendering_batches
-    .iter()
-    .sorted_by(|a, b| Ord::cmp(&a.0, &b.0))
+        .iter()
+        .sorted_by(|a, b| Ord::cmp(&a.0, &b.0))
     {
         for (image_path, draw_params) in group {
             let image = Image::from_path(context, image_path).unwrap();
@@ -93,14 +93,14 @@ pub fn run_rendering(game: &Game, context: &mut Context) {
     );
     
     let instructions = "
-    Use arrow keys to move\n
-    Press R to restart\n
-    Push boxes onto spots of
-    matching colours\n
-    Every colour matches with
-    grey!
+        Use arrow keys to move\n
+        Press R to restart\n
+        Push boxes onto spots of
+        matching colours\n
+        Every colour matches with
+        grey!
     ";
-    draw_text(&mut canvas, instructions, 440.0, 140.0, scale_factor);
+    draw_text(&mut canvas, instructions, 480.0, 140.0, scale_factor);
     draw_text(
         &mut canvas, 
         "Hint: try squishing your team on walls!\n(def not part of a bug I found cool)", 
