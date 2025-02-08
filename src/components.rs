@@ -124,9 +124,7 @@ pub struct AudioStore {
 impl AudioStore {
     pub fn play_sound(&mut self, context: &mut Context, sound: &str) {
         if let Some(source) = self.sounds.get_mut(sound) {
-            if source.play_detached(context).is_ok() {
-                println!("Playing sound: {sound}");
-            }
+            let _ = source.play_detached(context);
         }
     }
 }
