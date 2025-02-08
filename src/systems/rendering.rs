@@ -26,7 +26,11 @@ pub fn draw_text(canvas: &mut Canvas, text_string: &str, x: f32, y: f32, scale_f
         ..Default::default()
     });
 
-    canvas.draw(&text, Vec2::new(x * scale_factor, y * scale_factor));
+    canvas.draw(&text, 
+        DrawParam::new()
+        .dest(Vec2::new(x * scale_factor, y * scale_factor))
+        .scale(Vec2::new(scale_factor, scale_factor))
+    );
 }
 
 pub fn run_rendering(game: &Game, context: &mut Context) {
@@ -100,7 +104,8 @@ pub fn run_rendering(game: &Game, context: &mut Context) {
         Every colour matches with
         grey!
     ";
-    draw_text(&mut canvas, instructions, 480.0, 140.0, scale_factor);
+    // draw_text(&mut canvas, instructions, 480.0, 140.0, scale_factor);
+    draw_text(&mut canvas, instructions, 440.0, 140.0, scale_factor);
     draw_text(
         &mut canvas, 
         "Hint: try squishing your team on walls!\n(def not part of a bug I found cool)", 
