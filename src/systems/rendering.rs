@@ -91,7 +91,7 @@ pub fn run_rendering(game: &Game, context: &mut Context) {
         grey!
     ";
     draw_text(&mut canvas, instructions, 440.0, 140.0);
-    draw_text(&mut canvas, "Hint: try squishing your team on walls!\n(def not a cool bug I chose to leave in)", 30.0, 545.0);
+    draw_text(&mut canvas, "Hint: try squishing your team on walls!\n(def not part of a bug I found cool)", 30.0, 545.0);
 
     canvas.finish(context).expect("Expected to present");
 }

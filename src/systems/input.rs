@@ -67,6 +67,7 @@ pub fn run_input(game: &mut Game, context: &mut Context) {
             (end..=start).rev().collect::<Vec<_>>()
         };
 
+        let mut iter_moves = Vec::new();
         // iterate over the chain, checking for any invalid 
         for x_or_y in range {
             // get position
@@ -78,22 +79,20 @@ pub fn run_input(game: &mut Game, context: &mut Context) {
 
             match mov.get(&pos) {
                 // if there is a movable entity, add it to to_move
-                Some(entity) => to_move.push((*entity, key)),
+                Some(entity) => iter_moves.push((*entity, key)),
                 None => {
                     match immov.get(&pos) {
                         // if there is an immovable entity, the movement is invalid, and nothing should move
                         Some(_id) => {
-                            to_move.clear();
                             events.push(Event::PlayerHitObstacle {});
                             break;
                         },
                         // if its not movable or immovable (empty/floor/boxspot), the move is valid
-                        None => break,
+                        None => {
+                            to_move.append(&mut iter_moves);
+                            break;
+                        },
                     }
-                    // *** note the above breaks are what makes team squishing sometimes possible,
-                    // depending on the order the players are iterated over. Simple fix was just to
-                    // switch the breaks to continues, and have separate to_move vecs for each
-                    // iteratio, but I wanted to leave it in since its a cool bug :D
                 }
             }
         }
