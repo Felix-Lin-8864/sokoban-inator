@@ -9,7 +9,7 @@ fn main() -> GameResult {
 
     let mut exe_path = std::env::current_exe().expect("is an executable");
     let asset_path = if exe_path
-        .parent().expect("parent is MacOS or src")
+        .parent().expect("parent is MacOS or release or src")
         .ends_with("Contents/MacOS")
     {
         exe_path.pop();
