@@ -36,6 +36,7 @@ The base game was completed by following a [tutorial](https://sokoban.iolivia.me
 - Press 'R' to give up and restart from level 1... coward...
 - Use arrow keys to move! (probably should've led with that)
 - You can squash your team against the walls to make their positions more compact.
+- Try winning in as few moves as possible (but remember to have fun, because who's counting? (the game is...))
 - Try pushing fellow avatars INto walls! (Hint: if they're in the walls, they can push boxes off the walls (and get the possum out of there (its driving me crazy, I haven't slept since it just scratches and scratches and yowls and scratches (oh, look at that, polysyndeton) at night)))
 
 Please note that "avatar" refers to the "player" entity, and players refer to users playing the game for this document.
